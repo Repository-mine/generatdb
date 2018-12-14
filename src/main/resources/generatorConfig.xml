@@ -22,21 +22,23 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.kevin.generatdb.pojo" targetProject=".\src\main\java">
+        <javaModelGenerator targetPackage="${targetPackage}.pojo" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- targetPackage:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.kevin.generatdb.xml" targetProject=".\src\main\java">
+        <sqlMapGenerator targetPackage="${targetPackage}.xml" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!-- targetPackage：mapper接口的生成位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kevin.generatdb.mapper" targetProject=".\src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${targetPackage}.mapper"
+                             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="t_user"/>
+        <table tableName="user_info" domainObjectName="UserDO"/>
+        <table tableName="user_password" domainObjectName="UserPasswordDO"/>
 
 
     </context>
