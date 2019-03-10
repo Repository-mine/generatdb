@@ -6,6 +6,10 @@
 <generatorConfiguration>
     <properties resource="jdbc.properties"/>
     <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -28,18 +32,24 @@
         </javaModelGenerator>
 
         <!-- targetPackage:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="${targetPackage}.xml" targetProject=".\src\main\java">
+        <sqlMapGenerator targetPackage="${targetPackage}.mapper" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!-- targetPackage：mapper接口的生成位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="${targetPackage}.mapper"
+        <!-- XMLMAPPER  ANNOTATEDMAPPER  MIXEDMAPPER-->
+        <javaClientGenerator type="MIXEDMAPPER" targetPackage="${targetPackage}.dao"
                              targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="user_info" domainObjectName="UserDO"/>
-        <table tableName="user_password" domainObjectName="UserPasswordDO"/>
-
+        <!--        <table tableName="item" domainObjectName="ItemDO"
+                       enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false"/>-->
+        <table tableName="sys_role"/>
+        <table tableName="sys_user"/>
 
     </context>
 </generatorConfiguration>
