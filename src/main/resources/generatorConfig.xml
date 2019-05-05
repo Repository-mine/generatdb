@@ -42,14 +42,15 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!--        <table tableName="item" domainObjectName="ItemDO"
+        <!--<table tableName="item" domainObjectName="ItemDO"
                        enableCountByExample="false"
                        enableUpdateByExample="false"
                        enableDeleteByExample="false"
                        enableSelectByExample="false"
                        selectByExampleQueryId="false"/>-->
-        <table tableName="sys_role"/>
-        <table tableName="sys_user"/>
-
+        <!--<table tableName="sys_role"/>-->
+        <!--<table tableName="sys_user"/>-->
+        <table tableName="users"/>
+        <table tableName="question"/>
     </context>
 </generatorConfiguration>
